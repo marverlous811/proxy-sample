@@ -13,7 +13,12 @@ app.post('/webhook', (req, res) => {
 })
 
 app.get('/ping', (req, res) => {
-  console.log('pong')
+  res.set('Connection', 'close')
+  res.send({ status: 'pong' })
+})
+
+app.get('/api/ping', (req, res) => {
+  res.set('Connection', 'close')
   res.send({ status: 'pong' })
 })
 
